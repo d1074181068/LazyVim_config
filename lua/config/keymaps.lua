@@ -12,14 +12,11 @@ local function visual_cursors_with_delay()
   vim.cmd('silent! execute "normal! A"')
 end
 
-wk.register({
-  m = {
-    name = "Visual Multi",
-    a = { "<Plug>(VM-Select-All)<Tab>", "Select All", mode = { "n" } },
-    r = { "<Plug>(VM-Start-Regex-Search)", "Start Regex Search", mode = { "n" } },
-    p = { "<Plug>(VM-Add-Cursor-At-Pos)", "Add Cursor At Pos", mode = { "n", "v" } },
-    v = { visual_cursors_with_delay, "Visual Cursors", mode = { "v" } },
-    o = { "<Plug>(VM-Toggle-Mappings)", "Toggle Mapping", mode = { "n" } },
-  },
-  ["<C-v>"] = { "<Esc>v", "Visual Mode" },
-}, { prefix = "<leader>" })
+wk.add({
+  { "<leader>m", group = "Visual Multi" },
+  { "<leader>ma", "<Plug>(VM-Select-All)<Tab>", desc = "Select All" },
+  { "<leader>mo", "<Plug>(VM-Toggle-Mappings)", desc = "Toggle Mapping" },
+  { "<leader>mr", "<Plug>(VM-Start-Regex-Search)", desc = "Start Regex Search" },
+  { "<leader>mv", visual_cursors_with_delay, desc = "Visual Cursors", mode = "v" },
+  { "<leader>mp", "<Plug>(VM-Add-Cursor-At-Pos)", desc = "Add Cursor At Pos", mode = { "n", "v" } },
+})
