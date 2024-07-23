@@ -20,3 +20,6 @@ wk.add({
   { "<leader>mv", visual_cursors_with_delay, desc = "Visual Cursors", mode = "v" },
   { "<leader>mp", "<Plug>(VM-Add-Cursor-At-Pos)", desc = "Add Cursor At Pos", mode = { "n", "v" } },
 })
+
+-- Exit insert mode with 'jk'
+vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode" })
