@@ -10,6 +10,24 @@ return {
     },
     config = function()
       require("neo-tree").setup({
+        default_component_configs = {
+          git_status = {
+            symbols = {
+              -- Change type
+              added = "", -- NOTE: you can set any of these to an empty string to not show them
+              deleted = "󰧧",
+              modified = "",
+              renamed = "󰫿",
+              -- Status type
+              untracked = "",
+              ignored = "",
+              unstaged = "󰄱",
+              staged = "",
+              conflict = "",
+            },
+            align = "right",
+          },
+        },
         close_if_last_window = true, -- 如果这是最后一个窗口则关闭 Neo-tree
         popup_border_style = "rounded", -- 设置弹出窗口的边框样式
         enable_git_status = true,
@@ -71,11 +89,7 @@ return {
         buffers = {
           show_unloaded = true,
         },
-        git_status = {
-          window = {
-            position = "float",
-          },
-        },
+        git_status = {},
       })
 
       -- 绑定键位，方便打开 Neo-tree
