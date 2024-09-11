@@ -1,14 +1,15 @@
 return {
-  "zbirenbaum/copilot-cmp",
-  after = { "copilot.lua" }, -- 確保在 copilot.lua 後加載
-  config = function()
-    require("copilot_cmp").setup({
-      method = "getCompletionsCycling",
-      formatters = {
-        label = require("copilot_cmp.format").format_label_text,
-        insert_text = require("copilot_cmp.format").format_insert_text,
-        preview = require("copilot_cmp.format").deindent,
-      },
-    })
-  end,
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+    },
+    opts = {
+      debug = true, -- Enable debugging
+      -- See Configuration section for rest
+    },
+    -- See Commands section for default commands if you want to lazy load on them
+  },
 }
