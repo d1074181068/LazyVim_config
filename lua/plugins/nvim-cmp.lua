@@ -60,9 +60,7 @@ M.config = function()
   cmp.setup({
     mapping = {
       ["<Tab>"] = cmp.mapping(function(fallback)
-        if require("copilot.suggestion").is_visible() then
-          require("copilot.suggestion").accept()
-        elseif cmp.visible() then
+        if cmp.visible() then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
         elseif luasnip.expandable() then
           luasnip.expand()
