@@ -4,12 +4,8 @@
 
 local opt = vim.opt
 
+vim.g.autoformat = false
 -- 行间距
 opt.linespace = 4
 opt.wrap = true
 opt.linebreak = true
--- 換行
-
--- 設定游標速度
-
--- 中文編碼
