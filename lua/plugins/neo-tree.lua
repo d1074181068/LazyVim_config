@@ -67,24 +67,26 @@ return {
           },
         },
         filesystem = {
-          filtered_items = {
-            visible = true, -- 显示隐藏文件
-            hide_dotfiles = false,
-            hide_gitignored = true,
-            hide_by_name = {
-              ".DS_Store",
-              "thumbs.db",
-            },
-            never_show = { -- 永远不显示的文件
-              ".DS_Store",
-              "thumbs.db",
-            },
-          },
           follow_current_file = {
             enabbled = true,
           }, -- 自动展开当前文件所在目录
           hijack_netrw_behavior = "open_default", -- 覆盖 netrw 行为
           use_libuv_file_watcher = true, -- 使用 libuv 文件监视器
+          filtered_item = {
+            hide_dotfiles = true, -- 隱藏以點開頭的文件
+            hide_gitignored = true, -- 隱藏 .gitignore 中的文件
+            hide_by_name = {
+              "node_modules", -- 隱藏 node_modules 目錄
+              "target", -- 隱藏 target 目錄
+            },
+            hide_by_pattern = { -- 隱藏符合模式的文件或目錄
+              "*.log", -- 隱藏所有 .log 文件
+              "*.tmp", -- 隱藏所有 .tmp 文件
+            },
+            never_show = { -- 永遠不顯示的文件或目錄
+              ".DS_Store", -- 永遠不顯示 .DS_Store 文件
+            },
+          },
         },
         buffers = {
           show_unloaded = true,
